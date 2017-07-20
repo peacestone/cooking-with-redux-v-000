@@ -1,0 +1,25 @@
+NPM-TEST(1)                                                        NPM-TEST(1)
+
+NNAAMMEE
+       nnppmm--tteesstt - Test a package
+
+SSYYNNOOPPSSIISS
+           npm test [-- <args>]
+
+           aliases: t, tst
+
+DDEESSCCRRIIPPTTIIOONN
+       This runs a package's "test" script, if one was provided.
+
+SSEEEE AALLSSOO
+       · npm help run-script
+
+       · npm help 7 scripts
+
+       · npm help start
+
+       · npm help restart
+
+       · npm help stop
+
+                                 February 2017                     NPM-TEST(1)
