@@ -8,7 +8,7 @@ export class AddIngredients extends Component {
   render(){
     return(
       <div>
-        <ConnectedIngredients />
+        <ConnectedAddIngredient />
       </div>
     )
   }
