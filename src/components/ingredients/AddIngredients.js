@@ -6,15 +6,29 @@ import { connect } from 'react-redux'; /* code change */
 
 export class AddIngredients extends Component {
   render(){
+    const notSelected = this.props.unselectedIngredients.map((ingredient, index) => {return <ConnectedAddIngredient key={index} ingredient={ingredient}  />})
+    const selected = this.props.selectedIngredients.map((ingredient, index )=> {return <li key={ingredient.id} >{ingredient.name}</li> })
     return(
       <div>
-        <ConnectedAddIngredient />
+        {notSelected}
+        {selected}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {return {ingredients: state.ingredients}}
+const mapStateToProps = (state) => {
+  console.log(state.recipeForm.ingredientIds);
+  let selectedIngredients = state.ingredients.filter(ingredient => state.recipeForm.ingredientIds.includes(ingredient.id) ?  ingredient : null)
+
+  let unselectedIngredients = state.ingredients.filter(ingredient => state.recipeForm.ingredientIds.includes(ingredient.id) ? null :  ingredient)
+  // above the return
+  return {
+    ingredients: state.ingredients,
+    unselectedIngredients: unselectedIngredients,
+    selectedIngredients: selectedIngredients
+  }
+}
 
 
 

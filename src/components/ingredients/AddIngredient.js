@@ -3,10 +3,10 @@ import { connect } from 'react-redux'; /* code change */
 
 export class AddIngredient extends Component {
   render(){
-    const ingredients = this.props.ingredients.map((ingredient, index) => {return <li key={index}>{ingredient.name} <button type='button'>Add</button> </li>   } )
+    const ingredients = this.props.ingredients.map((ingredient, index) => {return <li key={index}>{ingredient.name}<button type='button'>Add</button> </li>   } )
     return(
       <div>
-      {ingredients}
+      
       </div>
     )
   }
