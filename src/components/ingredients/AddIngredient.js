@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; /* code change */
+import { bindActionCreators } from 'redux'; /* code change */
+import { addIngredient } from '../../actions/ingredients'
+
 
 export class AddIngredient extends Component {
+
+  constructor(props) {
+    super(props)
+
+  }
+  handleClick = event => {this.props.addIngredient(this.props.id)}
+  //handleClick = (event) => this.setState({ingredientIds: this.state.ingredientIds.concat([])})
   render(){
-    const ingredients = this.props.ingredients.map((ingredient, index) => {return <li key={index}>{ingredient.name}<button type='button'>Add</button> </li>   } )
+
     return(
       <div>
-       <button>'hi'</button>
+       <button onClick={this.handleClick}>{this.props.id}</button>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => { console.log(state.ingredients[0][0] + " state");
+const mapStateToProps = (state) => {
   return {
-    ingredients: state.ingredients
+    ingredients: state.ingredients,
+    ingredientIds: state.ingredientIds
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({addIngredient: addIngredient}, dispatch)
+  }
 
 
 
-export const ConnectedAddIngredient = connect(mapStateToProps)(AddIngredient)
+
+export const ConnectedAddIngredient = connect(mapStateToProps, mapDispatchToProps)(AddIngredient)

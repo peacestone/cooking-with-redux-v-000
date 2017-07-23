@@ -19,7 +19,7 @@ handleNameChange = event => this.setState({name: event.target.value})
 
 
 handleSubmit(event) {event.preventDefault(); console.log(this.props)
-  this.props.addRecipe({name: this.state.name, calories: this.state.calories, ingredientIds: []})
+  this.props.addRecipe({name: this.state.name, calories: this.state.calories, ingredientIds: this.props.selectedIngredients})
 }
 
 
@@ -42,6 +42,6 @@ const mapDispatchToProps = (dispatch) => {
     }, dispatch)
 }
 
-const mapStateToProps = (state) => {return {recipes: state.recipes}}
+const mapStateToProps = (state) => {return {recipes: state.recipes, selectedIngredients: state.recipeForm.ingredientIds}}
 
 export const ConnectedRecipesInput = connect(mapStateToProps, mapDispatchToProps)(RecipesInput)

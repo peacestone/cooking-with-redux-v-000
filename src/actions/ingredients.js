@@ -6,3 +6,12 @@ let createIngredient = (payload) => {
 }
 
 export default createIngredient
+
+let addIngredient = (id) => {
+  return {
+    type: 'ADD_INGREDIENT',
+    id: id
+  }
+}
+
+export { addIngredient }
