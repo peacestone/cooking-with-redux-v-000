@@ -1,6 +1,6 @@
 import uuidV4  from 'uuid/v4';
 
-export default function recipeForm(state = [], action){
+export default function recipes(state = [], action){
   switch (action.type ) {
     case 'ADD_RECIPE':
     let payload = Object.assign({}, action.payload, {id: uuidV4()})

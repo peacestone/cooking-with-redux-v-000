@@ -18,7 +18,7 @@ export class AddIngredients extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.recipeForm.ingredientIds);
+console.log(state);
   let selectedIngredients = state.ingredients.filter(ingredient => state.recipeForm.ingredientIds.includes(ingredient.id) ?  ingredient : null)
 
   let unselectedIngredients = state.ingredients.filter(ingredient => state.recipeForm.ingredientIds.includes(ingredient.id) ? null :  ingredient)

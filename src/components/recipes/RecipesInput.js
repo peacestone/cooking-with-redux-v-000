@@ -19,7 +19,7 @@ handleNameChange = event => this.setState({name: event.target.value})
 
 
 handleSubmit(event) {event.preventDefault(); console.log(this.props)
-  this.props.addRecipe({name: this.state.name, calories: this.state.calories})
+  this.props.addRecipe({name: this.state.name, calories: this.state.calories, ingredientIds: []})
 }
 
 
